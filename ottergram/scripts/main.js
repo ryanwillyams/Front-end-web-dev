@@ -2,6 +2,12 @@ var DETAIL_IMAGE_SELECTOR = '[data-image-role="target"]';
 var DETAIL_TITLE_SELECTOR = '[data-image-role="title"]';
 var THUMBNAIL_LINK_SELECTOR = '[data-image-role="trigger"]';
 
+var counter = 0;
+var imgArray = ["img/otter1.jpg", "img/otter2.jpg", "img/otter3.jpg", "img/otter4.jpg", "img/otter5.jpg"];
+var prev = document.getElementById("prev");
+var next = document.getElementById("next");
+
+
 
 
 function setDetails(imageUrl, titleText) {
@@ -37,3 +43,38 @@ function setDetailsFromThumb(thumbnail) {
       setDetailsFromThumb(thumb);
     });
   }
+
+  function getThumbnailsArray() {
+    'use strict';
+    var thumbnails = document.querySelectorAll(THUMBNAIL_LINK_SELECTOR);
+    var thumbnailArray = [].slice.call(thumbnails);
+        return thumbnailArray;
+  }
+
+  function initializeEvents() {
+    'use strict';
+    var thumbnails = getThumbnailsArray();
+    thumbnails.forEach(addThumbClickHandler);
+  }
+
+  next.onclick = function(){
+    counter--;
+    if (counter < 0)
+    counter = 4;
+    document.getElementById("detail-image").src=imgArray[counter];
+  
+  }
+  
+  prev.onclick = function(){
+    counter++;
+    if (counter > 4)
+    counter = 0;
+ document.getElementById("detail-image").src=imgArray[counter];
+
+  }
+
+  
+  initializeEvents();
+
+ 
+ 
