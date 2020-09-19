@@ -4,6 +4,7 @@ var THUMBNAIL_LINK_SELECTOR = '[data-image-role="trigger"]';
 
 var counter = 0;
 var imgArray = ["img/otter1.jpg", "img/otter2.jpg", "img/otter3.jpg", "img/otter4.jpg", "img/otter5.jpg"];
+var titleArray = ["Stayin' Alive", "How Deep Is Your Love","You Should Be Dancing","Night Fever","To Love Somebody"];
 var prev = document.getElementById("prev");
 var next = document.getElementById("next");
 
@@ -62,7 +63,8 @@ function setDetailsFromThumb(thumbnail) {
     if (counter < 0)
     counter = 4;
     document.getElementById("detail-image").src=imgArray[counter];
-  
+    document.querySelector(DETAIL_TITLE_SELECTOR).innerText = titleArray[counter];
+    
   }
   
   prev.onclick = function(){
@@ -70,6 +72,8 @@ function setDetailsFromThumb(thumbnail) {
     if (counter > 4)
     counter = 0;
  document.getElementById("detail-image").src=imgArray[counter];
+ document.querySelector(DETAIL_TITLE_SELECTOR).innerText = titleArray[counter];
+ 
 
   }
 
