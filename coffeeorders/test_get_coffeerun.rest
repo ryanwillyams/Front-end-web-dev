@@ -1,5 +1,5 @@
 // install the "REST Client" extension in VSCode.
-@baseUrl=localhost:3000
+@baseUrl=co.audstanley.com
 
 # get all orders
 GET http://{{baseUrl}}/coffeeorders HTTP/1.1
@@ -18,4 +18,9 @@ GET http://{{baseUrl}}/coffeeorders/sjobs@apple.com HTTP/1.1
 
 # get any order from jbezos@amazon.com (should be none)
 GET http://{{baseUrl}}/coffeeorders/jbezos@amazon.com HTTP/1.1
+
+###
+
+# get any order from mscott@starfleet.com (should be one)
+GET http://{{baseUrl}}/coffeeorders/mscott@starfleet.com HTTP/1.1
 
